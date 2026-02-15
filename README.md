@@ -14,7 +14,6 @@ Tiny, self-contained, mostly untested Instagram downloader made possible by [ins
 
 ## Minimum Requirements
 
-* git
 * [uv](https://docs.astral.sh/uv/getting-started/installation/)
 * macOS, Linux, WSL
 
@@ -25,11 +24,8 @@ Tiny, self-contained, mostly untested Instagram downloader made possible by [ins
 ## Install and setup
 
 ```bash
-# download repo to working directory
-git clone https://github.com/pythoninthegrass/insta-dl.git
-
-# symlink to somewhere in your path
-ln -s $(pwd)/main.py ~/.local/bin/insta-dl
+# install via uv from the repo
+uv tool install git+https://github.com/pythoninthegrass/insta-dl
 
 # create a session (one-time) — replace "firefox" with your browser
 insta-dl init firefox
