@@ -22,7 +22,7 @@ Tiny, self-contained, mostly untested Instagram downloader made possible by [ins
 
 * [mise](https://mise.jdx.dev/getting-started.html)
 
-## Quickstart
+## Install and setup
 
 ```bash
 # download repo to working directory
@@ -33,12 +33,18 @@ ln -s $(pwd)/main.py ~/.local/bin/insta-dl
 
 # create a session (one-time) — replace "firefox" with your browser
 insta-dl init firefox
+```
 
-# copy a shared link from instagram
-# * Open a reel > Settings (...) > Copy link
-# ! IMPORTANT: quote URLs that contain '&' (shared links from Instagram do) otherwise bash interprets '&' as "run in background"
+## Quickstart
 
-# download a video to a specific directory
+### Copy a shared link from Instagram
+
+* Open a reel > Settings (...) > Copy link
+* **IMPORTANT:** quote URLs that contain `&` (shared links from Instagram do) otherwise bash interprets `&` as "run in background"
+
+### Download a video to a specific directory
+
+```bash
 λ insta-dl https://www.instagram.com/reel/DKcxwGzoAwA -o ~/Videos/instagram
 Loaded session from ~/.config/instaloader/session-USERNAME.
 Fetching DKcxwGzoAwA (session: USERNAME)...
@@ -48,15 +54,18 @@ Already downloaded: DKcxwGzoAwA
 ~/Videos/instagram
 └── maxinemeixnerx
     ├── 2025
-    │   ├── Did you hear about this huge win for women__ 🫨🚀.mp4
-    │   ├── Did you hear about this huge win for women__ 🫨🚀.txt
-    │   ├── You deserve hope! 🫵 You deserve hope! 👈 Everybody deserves hope!.mp4
-    │   └── You deserve hope! 🫵 You deserve hope! 👈 Everybody deserves hope!.txt
+    │   ├── Did you hear about this huge win for women__ 🫨🚀.mp4
+    │   ├── Did you hear about this huge win for women__ 🫨🚀.txt
+    │   ├── You deserve hope! 🫵 You deserve hope! 👈 Everybody deserves hope!.mp4
+    │   └── You deserve hope! 🫵 You deserve hope! 👈 Everybody deserves hope!.txt
     └── downloads.jsonl
 
 3 directories, 5 files
+```
 
-# download an image post (supports sidecar/carousel posts)
+### Download an image post (supports sidecar/carousel posts)
+
+```bash
 λ insta-dl 'https://www.instagram.com/p/DPmJxJhjBVr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' \
     -o ~/Pictures/instagram
 
@@ -69,8 +78,11 @@ Already downloaded: DKcxwGzoAwA
 └── downloads.jsonl
 
 2 directories, 4 files
+```
 
-# override defaults with key=value args (passed to instaloader constructor)
+### Override defaults with `key=value` args (passed to instaloader constructor)
+
+```bash
 λ insta-dl 'https://www.instagram.com/p/DUv5_hAEvoS/' \
     -o ~/Videos/instagram \
     save_metadata=true download_comments=true compress_json=false
@@ -78,10 +90,10 @@ Already downloaded: DKcxwGzoAwA
 λ tree olivertree/
 olivertree/
 ├── 2026
-│   ├── Send this to someone this reminds you of_comments.json
-│   ├── Send this to someone this reminds you of.json
-│   ├── Send this to someone this reminds you of.mp4
-│   └── Send this to someone this reminds you of.txt
+│   ├── Send this to someone this reminds you of_comments.json
+│   ├── Send this to someone this reminds you of.json
+│   ├── Send this to someone this reminds you of.mp4
+│   └── Send this to someone this reminds you of.txt
 └── downloads.jsonl
 
 2 directories, 5 files
@@ -90,3 +102,4 @@ olivertree/
 ## Further Reading
 
 * [Command Line Options — Instaloader documentation](https://instaloader.github.io/cli-options.html)
+* [Running scripts | uv](https://docs.astral.sh/uv/guides/scripts/)
